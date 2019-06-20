@@ -58,15 +58,15 @@ php artisan serve
 
 ## Documentation
 
-For do a Shorten url you can make a post request: 
+**For do a Shorten url you can make a post request:** 
 
 APP_URL/api/short?url=URL
 
-For example: http://shortenurl.test/api/short?url=google.com if the APP_URL is: shortenurl.test and the url that u want short is google.com
+*For example: http://shortenurl.test/api/short?url=google.com if the APP_URL is: shortenurl.test and the url that u want short is google.com*
 
 Where APP_URL is your enviroment and URL is the URL that you want to short.
 
-Note: If you only run `php artisan serve` you APP_URL will be something like http://127.0.0.1:8000/
+*Note: If you only run `php artisan serve` you APP_URL will be something like http://127.0.0.1:8000/*
 
 This will be the response:
 
@@ -85,13 +85,38 @@ Where the SHORT_URL will be something that http://shortenurl.test/aSwrfAt
 
 And if you put the SHORT_URL in your browser you get the redirection.
 
-For get the top 100 most frequently accessed URLs you can make a get request:
+**For get the top 100 most frequently accessed URLs you can make a get request:**
 
 APP_URL/api/top
 
-## Future improvements
+This will be the response: 
 
-If I had more time, I would have done better documentation and the endpoint to list the 100 most visited url.
+```sh
+{
+    "data": [
+        {
+            "id": 22,
+            "url": "https://www.google.com/",
+            "short_url": "trIQgU9",
+            "title": "www.google.com",
+            "count": 4,
+            "created_at": "2019-06-20 22:07:08",
+            "updated_at": "2019-06-20 22:07:31"
+        },
+        {
+            "id": 20,
+            "url": "https://laravel.com/",
+            "short_url": "I78LBut",
+            "title": "laravel.com",
+            "count": 2,
+            "created_at": "2019-06-20 21:50:50",
+            "updated_at": "2019-06-20 21:52:21"
+        },
+        ...
+    ]
+} 
+```
+
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does 
 its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
