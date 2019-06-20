@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+use App\Url; 
 
 class UrlController extends Controller
 {
@@ -24,13 +27,38 @@ class UrlController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'url' => 'required'
-        ]);
+        try {
+            $request->validate([
+                'url' => 'required'
+            ]);
+    
+            $short_url = Str::random(7);
+    
+            $url = new Url;
+    
+            $url->url = $request->input('url');
+            $url->short_url = $short_url;
+            $url->count = 0;
+            $url->save();
 
-       // return response()->json([
-         //   'message' => 'Great success! New task created'
-        //]);
+            $response = [
+                'success' => true, 
+                'message' => 'Your short url for '.$request->input('url').' is '. "http://myshortener.test/". $short_url,
+                'data' => array(
+                    'url' => $request->input('url'),
+                    'short_url' => $short_url, 
+                    'id' => $url->id
+                )
+            ];
+    
+            return response()->json($response, 200);
+
+        } catch (BadResponseException $e) {
+            throw new Exceptions\InvalidResponseException($e->getMessage());
+        } catch (InvalidApiResponseException $e) {
+            throw new Exceptions\InvalidResponseException($e->getMessage());
+        }
+
     }
 
     /**
@@ -39,9 +67,12 @@ class UrlController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($short_url)
     {
-        //
+
+
+
+        return $short_url;
     }
 
     /**
