@@ -45,14 +45,6 @@ Run the following command to run startup migrations.
 php artisan migrate
 ```
 
-## Run
-
-Run the following command to start the HTTP Server.
-
-```sh
-php artisan serve
-```
-
 ## Spec
 
 For do a Shorten url you can make a post request: 
