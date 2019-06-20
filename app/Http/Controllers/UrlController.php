@@ -37,7 +37,8 @@ class UrlController extends Controller
             $url = new Url;
     
             $url->url = $request->input('url');
-            $url->short_url = $short_url;
+			$url->short_url = $short_url;
+			$url->title = "";
             $url->count = 0;
             $url->save();
 
