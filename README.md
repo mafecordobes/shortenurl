@@ -37,6 +37,12 @@ If you don't have `.env` file you can use the example one. Just rename `.env.exa
 
 If you wish create a virtual host called: shortenurl.test
 
+## Keys
+
+```sh
+php artisan key:generate
+```
+
 ## Migrations
 
 Run the following command to run startup migrations.
