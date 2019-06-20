@@ -62,11 +62,11 @@ php artisan serve
 
 APP_URL/api/short?url=URL
 
+Where **APP_URL** is your enviroment and **URL** is the URL that you want to short.
+*Note: If you only run `php artisan serve` you APP_URL will be something like http://127.0.0.1:8000/*
+
 *For example: http://shortenurl.test/api/short?url=google.com if the APP_URL is: shortenurl.test and the url that u want short is google.com*
 
-Where APP_URL is your enviroment and URL is the URL that you want to short.
-
-*Note: If you only run `php artisan serve` you APP_URL will be something like http://127.0.0.1:8000/*
 
 This will be the response:
 
@@ -81,7 +81,7 @@ This will be the response:
     }
 }
 ```
-Where the SHORT_URL will be something that http://shortenurl.test/aSwrfAt
+Where the **SHORT_URL** will be something that http://shortenurl.test/aSwrfAt
 
 And if you put the SHORT_URL in your browser you get the redirection.
 
