@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/short', 'UrlController@store')->name('urls.store');
+Route::get('/top', 'UrlController@index')->name('urls.index');

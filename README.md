@@ -85,6 +85,10 @@ Where the SHORT_URL will be something that http://shortenurl.test/aSwrfAt
 
 And if you put the SHORT_URL in your browser you get the redirection.
 
+For get the top 100 most frequently accessed URLs you can make a get request:
+
+APP_URL/api/top
+
 ## Future improvements
 
 If I had more time, I would have done better documentation and the endpoint to list the 100 most visited url.

@@ -6,6 +6,8 @@ use App\Url;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Validators\UrlValidator;
+use App\Http\Resources\Url as UrlResource;
+use App\Http\Resources\Urls as UrlResourceCollection;
 
 class UrlController extends Controller
 {
@@ -16,7 +18,9 @@ class UrlController extends Controller
      */
     public function index()
     {
-        //
+		$top = Url::orderBy('count', 'desc')->limit(100)->get();
+
+        return new UrlResourceCollection($top);
     }
 
     /**
