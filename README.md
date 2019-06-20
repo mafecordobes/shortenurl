@@ -75,11 +75,11 @@ This will be the response:
 }
 ```
 
-And if you put the SHORT_URL in browser you get the redirection.
+And if you put the SHORT_URL in your browser you get the redirection.
 
 ## Future improvements
 
-If I had had more time, I would have done better documentation and the list of the 100 most visited url
+If I had more time, I would have done better documentation and the endpoint to list the 100 most visited url.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does 
 its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
