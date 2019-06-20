@@ -45,7 +45,7 @@ Run the following command to run startup migrations.
 php artisan migrate
 ```
 
-## Spec
+## Documentation
 
 For do a Shorten url you can make a post request: 
 
