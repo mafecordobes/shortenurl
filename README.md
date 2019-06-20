@@ -66,6 +66,8 @@ For example: http://shortenurl.test/api/short?url=google.com if the APP_URL is: 
 
 Where APP_URL is your enviroment and URL is the URL that you want to short.
 
+Note: If you only run `php artisan serve` you APP_URL will be something like http://127.0.0.1:8000/
+
 This will be the response:
 
 ```sh

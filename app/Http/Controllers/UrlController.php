@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Url;
 use Illuminate\Support\Str;
-
-use App\Url; 
+use Illuminate\Http\Request;
+use App\Validators\UrlValidator;
 
 class UrlController extends Controller
 {
@@ -27,27 +27,44 @@ class UrlController extends Controller
      */
     public function store(Request $request)
     {
+
+		$data = $request->all();
+		$validator = UrlValidator::storeValidator($data);
+		
+		if ($validator->fails()) {
+
+			$response = [
+				'code' => 400,
+				'success' => false,
+				'message' => 'Validation Fails',
+				'data' => $data
+			];
+			
+			return response()->json($response, 400); 
+		}
+
         try {
-            $request->validate([
-                'url' => 'required'
-            ]);
     
-            $short_url = Str::random(7);
-    
+			$short_url = Str::random(7);
+			
+			$title = explode('/', $request->input('url'));
+
             $url = new Url;
     
             $url->url = $request->input('url');
 			$url->short_url = $short_url;
-			$url->title = "";
+			$url->title = $title[2];
             $url->count = 0;
             $url->save();
 
             $response = [
+				'code' => 200,
                 'success' => true, 
-                'message' => 'Your short url for '.$request->input('url').' is '. "http://shortenurl.test/". $short_url,
+                'message' => 'Your short url for '.$request->input('url').' is '. env('APP_URL') .'/'. $short_url,
                 'data' => array(
                     'url' => $request->input('url'),
-                    'short_url' => $short_url, 
+					'short_url' => $short_url, 
+					'title' => $title[2],
                     'id' => $url->id
                 )
             ];
