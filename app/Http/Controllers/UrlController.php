@@ -69,10 +69,10 @@ class UrlController extends Controller
      */
     public function show($short_url)
     {
+        $shorten = Url::where('short_url', $short_url)->first();
+        $shorten->increment('count');
+        return redirect()->away($shorten->url);
 
-
-
-        return $short_url;
     }
 
     /**

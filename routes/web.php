@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{short_url}', 'UrlController@show')->name('urls.show');
+Route::get('/{short_url?}', 'UrlController@show')->name('urls.show');
