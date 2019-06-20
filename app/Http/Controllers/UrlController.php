@@ -43,7 +43,7 @@ class UrlController extends Controller
 
             $response = [
                 'success' => true, 
-                'message' => 'Your short url for '.$request->input('url').' is '. "http://myshortener.test/". $short_url,
+                'message' => 'Your short url for '.$request->input('url').' is '. "http://shortenurl.test/". $short_url,
                 'data' => array(
                     'url' => $request->input('url'),
                     'short_url' => $short_url, 
