@@ -35,17 +35,21 @@ cp .env.example .env
 
 If you don't have `.env` file you can use the example one. Just rename `.env.example` to `.env`. Enter your configuration here (Database and App Url Configurations).
 
+Is important in the `.env` file put APP_URL your local enviroment.
+
 If you wish create a virtual host called: shortenurl.test
 
 ## Keys
+
+For generate APP_KEY run following command into the project.
 
 ```sh
 php artisan key:generate
 ```
 
-## Migrations
+## Migrations and Serve
 
-Run the following command to run startup migrations.
+Run the following command to run startup migrations and serve.
 
 ```sh
 php artisan migrate
@@ -56,9 +60,11 @@ php artisan serve
 
 For do a Shorten url you can make a post request: 
 
-http://shortenurl.test/api/short?url=URL
+APP_URL/api/short?url=URL
 
-Where shortenurl.test is the virtual host and URL the URL that you want to short.
+For example: http://shortenurl.test/api/short?url=google.com if the APP_URL is: shortenurl.test and the url that u want short is google.com
+
+Where APP_URL is your enviroment and URL is the URL that you want to short.
 
 This will be the response:
 
@@ -73,6 +79,7 @@ This will be the response:
     }
 }
 ```
+Where the SHORT_URL will be something that http://shortenurl.test/aSwrfAt
 
 And if you put the SHORT_URL in your browser you get the redirection.
 
