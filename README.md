@@ -93,8 +93,7 @@ APP_URL/api/top
 This will be the response: 
 
 ```sh
-{
-    "data": [
+    [
         {
             "id": 22,
             "url": "https://www.google.com/",
@@ -115,7 +114,6 @@ This will be the response:
         },
         ...
     ]
-} 
 ```
 
 
