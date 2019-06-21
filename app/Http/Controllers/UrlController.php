@@ -20,7 +20,7 @@ class UrlController extends Controller
     {
 		$top = Url::orderBy('count', 'desc')->limit(100)->get();
 
-        return new UrlResourceCollection($top);
+        return response()->json(new UrlResourceCollection($top), 200);
     }
 
     /**
